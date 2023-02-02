@@ -9,7 +9,7 @@ h1 {
 }
 .panel {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 .key {
   cursor: pointer;
@@ -21,9 +21,11 @@ h1 {
 .key.igual {
   background-color: blue;
   color: white;
+  width: 401px;
+  margin-top: 1px;
 }
 .result {
-  width: 295px;
+  width: 392px;
   height: 40px;
   font-size: 25px;
 }
