@@ -6,6 +6,7 @@ body {
 }
 h1 {
   color: white;
+  text-align: center;
 }
 .panel {
   display: grid;
@@ -23,9 +24,18 @@ h1 {
   color: white;
   width: 401px;
   margin-top: 1px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: -webkit-xxx-large;
 }
 .result {
   width: 392px;
   height: 100px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   font-size: 25px;
+  background-color: khaki;
+  color: black;
+  text-align: center;
+  font-weight: bolder;
 }
