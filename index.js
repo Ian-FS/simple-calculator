@@ -1,11 +1,13 @@
 const keys = document.querySelectorAll("button");
 const input = document.querySelector("input");
-let resultado = "";
+
+let resultado = 0;
 let typeOperator = "";
+let amountValue;
+
 keys.forEach((key) => {
   key.addEventListener("click", (event) => {
     const element = event.target.innerHTML;
-    console.log(element);
 
     switch (element) {
       case "1":
@@ -42,49 +44,89 @@ keys.forEach((key) => {
         input.value += element;
         break;
       case "+":
-        resultado = parseFloat(input.value);
+        if (typeOperator != "") {
+          break;
+        }
+        if (resultado === 0) {
+          resultado = parseFloat(input.value);
+        } else {
+          resultado -= parseFloat(input.value);
+        }
         input.value = "";
         typeOperator = "+";
+        console.log(resultado);
         break;
       case "-":
-        resultado = parseFloat(input.value);
+        if (typeOperator != "") {
+          break;
+        }
+        if (resultado === 0) {
+          resultado = parseFloat(input.value);
+        } else {
+          resultado -= parseFloat(input.value);
+        }
         input.value = "";
         typeOperator = "-";
         break;
       case "*":
-        resultado = parseFloat(input.value);
+        if (typeOperator != "") {
+          break;
+        }
+        if (resultado === 0) {
+          resultado = parseFloat(input.value);
+        } else {
+          resultado *= parseFloat(input.value);
+        }
         input.value = "";
         typeOperator = "*";
         break;
       case "/":
-        resultado = parseFloat(input.value);
+        if (typeOperator != "") {
+          break;
+        }
+        if (resultado === 0) {
+          resultado = parseFloat(input.value);
+        } else {
+          resultado /= parseFloat(input.value);
+        }
         input.value = "";
         typeOperator = "/";
+        console.log(resultado);
         break;
       case "C":
         input.value = "";
-        resultado = "";
+        resultado = 0;
         typeOperator = "";
         break;
       case "=":
         switch (typeOperator) {
           case "+":
-            input.value = resultado + parseFloat(input.value);
+            resultado += parseFloat(input.value);
+            input.value = resultado;
+            resultado = 0;
+            typeOperator = "";
             break;
           case "-":
-            input.value = resultado - parseFloat(input.value);
+            resultado -= parseFloat(input.value);
+            input.value = resultado;
+            resultado = 0;
+            typeOperator = "";
             break;
           case "*":
-            input.value = resultado * parseFloat(input.value);
+            resultado *= parseFloat(input.value);
+            input.value = resultado;
+            resultado = 0;
+            typeOperator = "";
             break;
           case "/":
-            input.value = resultado / parseFloat(input.value);
+            resultado /= parseFloat(input.value);
+            input.value = resultado;
+            resultado = 0;
+            typeOperator = "";
             break;
-
           default:
             break;
         }
-
         break;
 
       default:
