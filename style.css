@@ -16,8 +16,9 @@ h1 {
   cursor: pointer;
   width: 100px;
   height: 100px;
-  font-size: 25px;
+  font-size: 57px;
   font-weight: bold;
+  text-align: center;
 }
 .key.igual {
   background-color: #8675fa;
@@ -26,17 +27,17 @@ h1 {
   margin-top: 1px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  font-size: -webkit-xxx-large;
+  font-size: 80px;
 }
 .allErase:active {
   background-color: #fa5943;
 }
 .result {
   width: 392px;
-  height: 100px;
+  height: 170px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  font-size: 25px;
+  font-size: 60px;
   background-color: #fae350;
   color: black;
   text-align: center;
