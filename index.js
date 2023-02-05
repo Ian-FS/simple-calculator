@@ -1,5 +1,6 @@
 const keys = document.querySelectorAll("button");
 const input = document.querySelector("input");
+let operatorKey = "";
 
 let resultado = 0;
 let typeOperator = "";
@@ -44,7 +45,7 @@ keys.forEach((key) => {
         input.value += element;
         break;
       case "+":
-        if (typeOperator != "") {
+        if (typeOperator != "" || input.value == "") {
           break;
         }
         if (resultado === 0) {
@@ -52,12 +53,13 @@ keys.forEach((key) => {
         } else {
           resultado -= parseFloat(input.value);
         }
+        event.target.style.backgroundColor = "#73FA69";
         input.value = "";
-        typeOperator = "+";
+        typeOperator = "increase";
         console.log(resultado);
         break;
       case "-":
-        if (typeOperator != "") {
+        if (typeOperator != "" || input.value == "") {
           break;
         }
         if (resultado === 0) {
@@ -65,11 +67,12 @@ keys.forEach((key) => {
         } else {
           resultado -= parseFloat(input.value);
         }
+        event.target.style.backgroundColor = "#73FA69";
         input.value = "";
-        typeOperator = "-";
+        typeOperator = "decrease";
         break;
       case "*":
-        if (typeOperator != "") {
+        if (typeOperator != "" || input.value == "") {
           break;
         }
         if (resultado === 0) {
@@ -77,11 +80,12 @@ keys.forEach((key) => {
         } else {
           resultado *= parseFloat(input.value);
         }
+        event.target.style.backgroundColor = "#73FA69";
         input.value = "";
-        typeOperator = "*";
+        typeOperator = "multiply";
         break;
       case "/":
-        if (typeOperator != "") {
+        if (typeOperator != "" || input.value == "") {
           break;
         }
         if (resultado === 0) {
@@ -89,39 +93,51 @@ keys.forEach((key) => {
         } else {
           resultado /= parseFloat(input.value);
         }
+        event.target.style.backgroundColor = "#73FA69";
         input.value = "";
-        typeOperator = "/";
+        typeOperator = "divide";
         console.log(resultado);
         break;
       case "C":
         input.value = "";
         resultado = 0;
+        if (typeOperator != "") {
+          document.getElementById(`${typeOperator}`).style.backgroundColor = "";
+        }
         typeOperator = "";
         break;
       case "=":
         switch (typeOperator) {
-          case "+":
+          case "increase":
             resultado += parseFloat(input.value);
             input.value = resultado;
             resultado = 0;
+            document.getElementById(`${typeOperator}`).style.backgroundColor =
+              "";
             typeOperator = "";
             break;
-          case "-":
+          case "decrease":
             resultado -= parseFloat(input.value);
             input.value = resultado;
             resultado = 0;
+            document.getElementById(`${typeOperator}`).style.backgroundColor =
+              "";
             typeOperator = "";
             break;
-          case "*":
+          case "multiply":
             resultado *= parseFloat(input.value);
             input.value = resultado;
             resultado = 0;
+            document.getElementById(`${typeOperator}`).style.backgroundColor =
+              "";
             typeOperator = "";
             break;
-          case "/":
+          case "divide":
             resultado /= parseFloat(input.value);
             input.value = resultado;
             resultado = 0;
+            document.getElementById(`${typeOperator}`).style.backgroundColor =
+              "";
             typeOperator = "";
             break;
           default:
